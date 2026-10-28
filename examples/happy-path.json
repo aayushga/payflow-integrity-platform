@@ -1,0 +1,82 @@
+{
+  "scenario": "full_capture_followed_by_full_refund",
+  "synthetic": true,
+  "contract_status": "proposed",
+  "payment_events": [
+    {
+      "schema_version": 1,
+      "provider_id": "provider_demo",
+      "event_id": "evt_demo_001",
+      "payment_id": "pay_demo_001",
+      "merchant_id": "merchant_demo_001",
+      "entity_version": 1,
+      "event_type": "payment.authorized",
+      "occurred_at": "2026-10-01T10:00:00Z",
+      "emitted_at": "2026-10-01T10:00:01Z",
+      "amount_minor": 10000,
+      "currency": "USD"
+    },
+    {
+      "schema_version": 1,
+      "provider_id": "provider_demo",
+      "event_id": "evt_demo_002",
+      "payment_id": "pay_demo_001",
+      "merchant_id": "merchant_demo_001",
+      "entity_version": 2,
+      "event_type": "payment.captured",
+      "occurred_at": "2026-10-01T10:01:00Z",
+      "emitted_at": "2026-10-01T10:01:01Z",
+      "amount_minor": 10000,
+      "currency": "USD",
+      "operation_id": "op_capture_demo_001"
+    },
+    {
+      "schema_version": 1,
+      "provider_id": "provider_demo",
+      "event_id": "evt_demo_003",
+      "payment_id": "pay_demo_001",
+      "merchant_id": "merchant_demo_001",
+      "entity_version": 3,
+      "event_type": "payment.refunded",
+      "occurred_at": "2026-10-02T11:00:00Z",
+      "emitted_at": "2026-10-02T11:00:01Z",
+      "amount_minor": 10000,
+      "currency": "USD",
+      "operation_id": "op_refund_demo_001",
+      "related_operation_id": "op_capture_demo_001"
+    }
+  ],
+  "settlement_rows": [
+    {
+      "provider_id": "provider_demo",
+      "settlement_row_id": "row_demo_001",
+      "payment_id": "pay_demo_001",
+      "merchant_id": "merchant_demo_001",
+      "operation_id": "op_capture_demo_001",
+      "operation_type": "capture",
+      "settlement_date": "2026-10-02",
+      "currency": "USD",
+      "gross_amount_minor": 10000
+    },
+    {
+      "provider_id": "provider_demo",
+      "settlement_row_id": "row_demo_002",
+      "payment_id": "pay_demo_001",
+      "merchant_id": "merchant_demo_001",
+      "operation_id": "op_refund_demo_001",
+      "operation_type": "refund",
+      "settlement_date": "2026-10-03",
+      "currency": "USD",
+      "gross_amount_minor": -10000
+    }
+  ],
+  "expected_final_result": {
+    "payment_state": "REFUNDED",
+    "last_contiguous_version": 3,
+    "canonical_event_count": 3,
+    "captured_amount_minor": 10000,
+    "refunded_amount_minor": 10000,
+    "matched_operation_count": 2,
+    "net_gross_settlement_minor": 0
+  }
+}
