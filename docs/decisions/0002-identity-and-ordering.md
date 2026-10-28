@@ -1,6 +1,7 @@
 # ADR 0002: Payment key, stable identities, and source versions
 
-Status: **Proposed — owner decision pending**  
+Status: **Proposed — owner decision pending**
+
 Date: 2026-10-28
 
 ## Problem

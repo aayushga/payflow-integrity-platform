@@ -1,6 +1,7 @@
 # ADR 0001: Preserve source evidence and rebuild derived state
 
-Status: **Proposed — owner decision pending**  
+Status: **Proposed — owner decision pending**
+
 Date: 2026-10-28
 
 ## Problem
