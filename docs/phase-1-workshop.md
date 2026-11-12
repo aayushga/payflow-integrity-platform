@@ -8,7 +8,9 @@ Read [ADR 0001](decisions/0001-authority-and-projections.md). Imagine a transfor
 
 Choose A, B, or C. Explain what survives, how you would rebuild, and how users would know which result is corrected. Also explain why a settlement file is evidence to compare rather than a reason to overwrite payment events.
 
-Owner response: **Pending**.
+Owner response, 2026-11-12: **Option C selected.** Use unique IDs to recognize duplicate/replayed events, Kafka offsets for recent replay, and retained raw files for older history. One, six, and 24 hours were suggested as possible recent windows; no retention value was selected.
+
+Mentor feedback: Persist raw observations continuously with overlapping retention. A stable ID helps detect duplicates, but correcting buggy transformations also requires corrected rules, an isolated rebuild, and independent verification. ADR 0001 is accepted; the owner follow-up is to explain how to verify a repaired result. Identity and ordering details remain for Exercise 2.
 
 ## Exercise 2: Delivery versus business order
 
@@ -34,7 +36,8 @@ Owner response: **Pending**.
 
 ## Decisions needed before Phase 2
 
-- Accept or revise the authority model and partition/identity proposal.
+- Authority model accepted in ADR 0001; explain rebuild verification, then review the partition/identity proposal in ADR 0002.
+- Choose broker and raw retention/recovery budgets separately from the streaming lateness horizon.
 - Accept or simplify the v1 lifecycle and monetary model.
 - Set the late-data horizon, settlement close policy, and clock-skew tolerance.
 - Establish local CPU/memory budget and an initial measurable workload.

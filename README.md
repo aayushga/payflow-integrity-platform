@@ -48,7 +48,7 @@ Raw, trusted, and enriched lakehouse layers will use one table format. Delta Lak
 
 ## Roadmap and evidence
 
-The [roadmap](docs/roadmap.md) uses demonstrable exit criteria. The [Interview Story](docs/interview-story.md) distinguishes design reasoning from implemented and tested evidence. ADRs remain **Proposed** until the project owner reviews them.
+The [roadmap](docs/roadmap.md) uses demonstrable exit criteria. The [Interview Story](docs/interview-story.md) distinguishes design reasoning from implemented and tested evidence. ADR 0001 is **Accepted**: retain raw evidence continuously and use hybrid replay through recent Kafka offsets or retained raw history. Retention durations remain open; ADR 0002 on identity and ordering remains **Proposed**.
 
 ## Local development
 

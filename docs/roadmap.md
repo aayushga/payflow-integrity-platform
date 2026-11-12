@@ -1,6 +1,6 @@
 # Roadmap
 
-Phases are learning checkpoints, not delivery-date commitments. Phase 0 is complete: the owner selected payments and settlement reconciliation. Phase 1 is in progress; all ADRs are proposed.
+Phases are learning checkpoints, not delivery-date commitments. Phase 0 is complete: the owner selected payments and settlement reconciliation. Phase 1 is in progress. ADR 0001 is accepted with hybrid replay; ADR 0002 remains proposed. Rebuild verification, identity/ordering, and retention policies still need owner discussion.
 
 | Phase | Small deliverable | Evidence required to exit |
 | --- | --- | --- |
